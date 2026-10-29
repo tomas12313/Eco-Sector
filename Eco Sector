@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz Rural | Energía Sostenible</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur border-b border-zinc-800">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="text-lg font-bold tracking-tight text-white">LUZ<span class="text-amber-400">RURAL</span></span>
+            <a href="#contacto" class="px-4 py-2 rounded-full text-xs font-bold bg-amber-400 text-zinc-950 hover:bg-amber-300 transition">Unirse</a>
+        </div>
+    </header>
+
+    <!-- Hero / Demostrador Interactivo -->
+    <main class="pt-28 pb-16 px-6 max-w-4xl mx-auto space-y-12">
+        <div class="text-center space-y-4">
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-amber-400 text-xs font-semibold">
+                Solución Energética Comunitaria
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                Llevando luz y desarrollo a <span class="text-amber-400">zonas rurales</span>
+            </h1>
+            <p class="text-zinc-400 text-sm max-w-xl mx-auto leading-relaxed">
+                Más de 600 millones de personas viven sin electricidad. La solución son las microrredes solares comunitarias para garantizar educación, salud y economía.
+            </p>
+        </div>
+
+        <!-- Tarjeta Interactiva -->
+        <div id="cardBox" class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center transition-all duration-500 shadow-xl">
+            <div id="statusIcon" class="text-4xl mb-3">🌙</div>
+            <h3 id="cardTitle" class="text-xl font-bold text-white mb-2">Comunidad a Oscuras</h3>
+            <p id="cardDesc" class="text-zinc-400 text-xs mb-6">Los niños estudian con velas y no hay refrigeración para vacunas.</p>
+            <button id="toggleBtn" class="px-6 py-3 rounded-xl bg-amber-400 text-zinc-950 font-bold hover:bg-amber-300 text-sm transition shadow-lg shadow-amber-400/20">
+                Encender Energía Solar ⚡
+            </button>
+        </div>
+
+        <!-- Problemática y Solución -->
+        <div class="grid md:grid-cols-2 gap-6 pt-6">
+            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
+                <h3 class="text-base font-bold text-red-400 mb-3">❌ El Problema</h3>
+                <ul class="space-y-2 text-xs text-zinc-400">
+                    <li>• Pérdida de vacunas por falta de cadena de frío.</li>
+                    <li>• Estudiantes sin acceso a estudio nocturno.</li>
+                    <li>• Uso costoso y contaminante de generadores a diésel.</li>
+                </ul>
+            </div>
+            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
+                <h3 class="text-base font-bold text-amber-400 mb-3">✅ Nuestra Solución</h3>
+                <ul class="space-y-2 text-xs text-zinc-400">
+                    <li>• Paneles solares modulares de alta resistencia.</li>
+                    <li>• Baterías de litio para respaldo 24/7.</li>
+                    <li>• Capacitación técnica comunitaria local.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <section id="contacto" class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl max-w-xl mx-auto text-center">
+            <h3 class="text-xl font-bold text-white mb-2">¿Quieres llevar este proyecto a tu comunidad?</h3>
+            <p class="text-zinc-400 text-xs mb-6">Déjanos tu correo y nos pondremos en contacto.</p>
+            <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito!'); this.reset();" class="space-y-4">
+                <input type="email" required placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-white text-xs focus:outline-none focus:border-amber-400">
+                <button type="submit" class="w-full py-3 rounded-xl bg-amber-400 text-zinc-950 font-bold hover:bg-amber-300 text-xs transition">Enviar Solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Script Interactivo -->
+    <script>
+        let active = false;
+        const btn = document.getElementById('toggleBtn');
+        const cardBox = document.getElementById('cardBox');
+        const statusIcon = document.getElementById('statusIcon');
+        const cardTitle = document.getElementById('cardTitle');
+        const cardDesc = document.getElementById('cardDesc');
+
+        btn.addEventListener('click', () => {
+            active = !active;
+            if (active) {
+                cardBox.className = "bg-amber-500/10 border border-amber-500/40 rounded-3xl p-8 text-center transition-all duration-500 shadow-2xl shadow-amber-500/10";
+                statusIcon.textContent = "☀️";
+                cardTitle.textContent = "¡Comunidad Electrificada!";
+                cardDesc.textContent = "Luces LED encendidas, refrigeración médica y conectividad activa las 24 horas.";
+                btn.textContent = "Apagar Energía 🌙";
+            } else {
+                cardBox.className = "bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center transition-all duration-500";
+                statusIcon.textContent = "🌙";
+                cardTitle.textContent = "Comunidad a Oscuras";
+                cardDesc.textContent = "Los niños estudian con velas y no hay refrigeración para vacunas.";
+                btn.textContent = "Encender Energía Solar ⚡";
+            }
+        });
+    </script>
+</body>
+</html>
